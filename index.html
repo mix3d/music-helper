@@ -1,16 +1,25 @@
 <html>
   <head>
-    <script src="https://unpkg.com/vexflow/releases/vexflow-debug.js"></script>
+    <link href="./src/css/output.css" rel="stylesheet" />
     <style>
       html,
       body {
         padding: 0;
         margin: 0;
       }
+      .controls {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      select + label {
+        margin-left: 16px;
+      }
     </style>
   </head>
   <body>
-    <div class="controlls">
+    <div class="controls">
       <label for="clef">Clef: </label>
       <select id="clef">
         <option value="treble">Treble</option>
@@ -18,10 +27,8 @@
       </select>
       <label for="key">Key Signature: </label>
       <select id="key">
-        <optgroup label="Major" id="majorKey">
-        </optgroup>
-        <optgroup label="Minor" id="minorKey">
-        </optgroup>
+        <optgroup label="Major" id="majorKey"></optgroup>
+        <optgroup label="Minor" id="minorKey"></optgroup>
       </select>
     </div>
     <div id="music"></div>

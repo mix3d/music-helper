@@ -1,7 +1,5 @@
 import Vex from "vexflow/src/index.js";
 
-console.log(Vex);
-
 // Create an SVG renderer and attach it to the DIV element named "boo".
 const vexflowdiv = document.getElementById("music");
 const renderer = new Vex.Flow.Renderer(
