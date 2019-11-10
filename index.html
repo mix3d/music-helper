@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/vexflow/releases/vexflow-debug.js"></script>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="controlls">
+      <label for="clef">Clef: </label>
+      <select id="clef">
+        <option value="treble">Treble</option>
+        <option value="bass">Bass</option>
+      </select>
+      <label for="key">Key Signature: </label>
+      <select id="key">
+        <optgroup label="Major" id="majorKey">
+        </optgroup>
+        <optgroup label="Minor" id="minorKey">
+        </optgroup>
+      </select>
+    </div>
+    <div id="music"></div>
+    <script src="./src/index.js"></script>
+  </body>
+</html>

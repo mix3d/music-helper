@@ -1,0 +1,36 @@
+{
+  "name": "music-helper",
+  "version": "1.0.0",
+  "description": "Sheet Music Sight Reading Helper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mix3d/music-helper.git"
+  },
+  "keywords": [
+    "music",
+    "notes",
+    "staff",
+    "read",
+    "help",
+    "VexFlow"
+  ],
+  "author": "Madison Dickson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mix3d/music-helper/issues"
+  },
+  "homepage": "https://github.com/mix3d/music-helper#readme",
+  "dependencies": {
+    "vexflow": "^1.2.89"
+  },
+  "devDependencies": {
+    "@types/vexflow": "^1.2.33",
+    "parcel-bundler": "^1.12.4"
+  }
+}
