@@ -1,4 +1,5 @@
 import Vex from "vexflow/src/index.js";
+import { KeySignature } from 'vexflow/src/keysignature.js';
 
 // Create an SVG renderer and attach it to the DIV element named "boo".
 const vexflowdiv = document.getElementById("music");
@@ -12,6 +13,11 @@ let height = window.innerHeight;
 
 // Size our svg:
 renderer.resize(width, height);
+window.addEventListener("resize", () => {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  renderer.resize(width, height);
+});
 
 // And get a drawing context:
 const context = renderer.getContext();
@@ -59,6 +65,8 @@ const minorKeys = [
   'A#m',
 ];
 
+// Create the dropdown items
+// TODO: make this a popup with visual key selector
 majorKeys.forEach(key => {
   let o = document.createElement('option')
   o.value = key;
@@ -74,6 +82,13 @@ minorKeys.forEach(key => {
 
 clefSelector.oninput = ev => {
   stave.setClef(clefSelector.value);
+  // FIXME IN SOURCE: update key signatures
+  // stave.setKeySignature(keySelector.value)
+  // const keySignatures = stave.getModifiers();
+  // keySignatures.filter(key => key.category === KeySignature.CATEGORY).forEach(key => {
+  //   key.setKeySig(keySelector.value)
+  //   key.format()
+  // })
   drawStaff();
 };
 
@@ -82,28 +97,18 @@ keySelector.oninput = ev => {
   drawStaff()
 }
 
-// Add a clef
+// Initialize Stave from DOM
 stave.setClef(clefSelector.value);
+stave.setKeySignature(keySelector.value)
 
 // Connect it to the rendering context and draw!
 stave.setContext(context).draw();
-
-window.addEventListener("resize", () => {
-  console.log("resized", context.state.scale);
-  width = window.innerWidth;
-  height = window.innerHeight;
-  renderer.resize(width, height);
-});
 
 function drawStaff() {
   context.scale(context.state.scale.x, context.state.scale.y);
   stave.setWidth(width / 2 - 20);
   context.clear();
   stave.draw();
-}
-
-function selectClef(clef) {
-  console.log(clef);
 }
 
 let svgPt;

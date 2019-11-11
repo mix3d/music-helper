@@ -1,3 +1,4 @@
+//  COPIED FROM https://github.com/0xfe/vexflow/issues/371#issuecomment-307444191
 import SVGContext from 'vexflow/src/svgcontext.js';
 
 const isDragSymbol = Symbol('dragging');
