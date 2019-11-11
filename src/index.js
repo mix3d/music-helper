@@ -11,22 +11,25 @@ const renderer = new Vex.Flow.Renderer(
 let width = window.innerWidth;
 let height = window.innerHeight;
 
+let scale = 2;
+
 // Size our svg:
-renderer.resize(width, height);
+renderer.resize(width, height-64);
 window.addEventListener("resize", () => {
   width = window.innerWidth;
   height = window.innerHeight;
-  renderer.resize(width, height);
+  renderer.resize(width, height-64);
+  drawStaff();
 });
 
 // And get a drawing context:
 const context = renderer.getContext();
-context.scale(2, 2);
+context.scale(scale, scale);
 
 // From other guy:
 // context.options.scaleToContainer = true;
 
-let stave = new Vex.Flow.Stave(10, 0, width / 2 - 20, {});
+let stave = new Vex.Flow.Stave(10, 0, width / scale - 20, {});
 
 const clefSelector = document.getElementById("clef");
 const keySelector = document.getElementById("key");
@@ -106,7 +109,7 @@ stave.setContext(context).draw();
 
 function drawStaff() {
   context.scale(context.state.scale.x, context.state.scale.y);
-  stave.setWidth(width / 2 - 20);
+  stave.setWidth(width / scale - 20);
   context.clear();
   stave.draw();
 }

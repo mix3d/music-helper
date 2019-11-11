@@ -19,19 +19,47 @@
     </style>
   </head>
   <body>
-    <div class="controls">
-      <label for="clef">Clef: </label>
-      <select id="clef">
-        <option value="treble">Treble</option>
-        <option value="bass">Bass</option>
-      </select>
-      <label for="key">Key Signature: </label>
-      <select id="key">
-        <optgroup label="Major" id="majorKey"></optgroup>
-        <optgroup label="Minor" id="minorKey"></optgroup>
-      </select>
+    <div class="flex items-center justify-between px-4 py-3 bg-gray-900">
+      <div class="md:inline-block">
+        <label for="clef" class="text-white">Clef: </label>
+        <div class="inline-block relative w-24">
+          <select
+            id="clef"
+            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-2 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="treble">Treble</option>
+            <option value="bass">Bass</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="md:inline-block ml-4">
+        <label for="key" class="text-white">Key Signature: </label>
+        <div class="inline-block relative w-16">
+          <select
+            id="key"
+            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-2 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <optgroup label="Major" id="majorKey"></optgroup>
+            <optgroup label="Minor" id="minorKey"></optgroup>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="flex-grow">
+        <button class="float-right bg-blue-500 hover:bg-blue-700 active:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">Reset</button>
+      </div>
     </div>
     <div id="music"></div>
+    <div class="absolute right-0 bottom-0 mb-8 mr-8 rounded-full w-16 h-16 p-4 text-white bg-blue-500 flex items-center justify-center shadow-md hover:bg-blue-700 active:bg-blue-800">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460.5 531.74" class="m-1 ml-2 shadow">
+        <polygon fill="currentColor" points="0.5,0.866 459.5,265.87 0.5,530.874 "/>
+      </svg>
+    </div>
     <script src="./src/index.js"></script>
   </body>
 </html>
